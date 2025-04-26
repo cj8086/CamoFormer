@@ -1,7 +1,5 @@
 import os
 import sys
-import datetime
-import math
 import dataset
 import argparse
 import cv2
