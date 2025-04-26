@@ -1,0 +1,49 @@
+# 操作系统生成文件
+.DS_Store          # Mac 系统文件
+Thumbs.db          # Windows 缩略图缓存
+desktop.ini        # Windows 系统配置
+*.swp              # Vim 临时文件
+*.swo              # Vim 临时文件
+
+# IDE 配置（按需启用）
+## JetBrains 系列 (IntelliJ/PyCharm等)
+.idea/
+*.iml
+*.ipr
+*.iws
+## VS Code
+.vscode/
+## Eclipse
+.classpath
+.project
+.settings/
+
+# 编译产物与依赖目录
+## 通用
+build/
+dist/
+out/
+*.exe
+*.dll
+*.so
+*.class
+## Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.python-version
+
+logs/
+tmp/
+*.log
+*.bak
+*.tmp
+
+# 敏感信息（必须忽略！）
+.env
+.env.local
+*.key
+*.cert
+*.pem
+config.json      # 示例：自定义配置文件
