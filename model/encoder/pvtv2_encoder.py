@@ -6,7 +6,9 @@ import torch.nn as nn
 # import torch.nn.functional as F
 from functools import partial
 import math
-from timm.models.layers import DropPath, to_2tuple, trunc_normal_
+from timm.layers.drop import DropPath
+from timm.layers.helpers import to_2tuple 
+from timm.layers.weight_init import trunc_normal_
 from timm.models.registry import register_model
 # from timm.models.vision_transformer import _cfg
 
