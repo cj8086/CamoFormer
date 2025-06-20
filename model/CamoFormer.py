@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from .encoder.pvtv2_encoder import pvt_v2_b4
+from .encoder.pvtv2_encoder import CamoPVT_v2_b4
 from .decoder.decoder_p import Decoder
 
 
@@ -76,7 +76,7 @@ class CamoFormer(torch.nn.Module):
     def __init__(self, cfg, load_path=None):
         super(CamoFormer, self).__init__()
         self.cfg = cfg
-        self.encoder = pvt_v2_b4()
+        self.encoder = CamoPVT_v2_b4()
         if load_path is not None:
             pretrained_dict = torch.load(load_path)
             pretrained_dict = {
