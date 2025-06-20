@@ -9,7 +9,7 @@ import math
 from timm.layers.drop import DropPath
 from timm.layers.helpers import to_2tuple 
 from timm.layers.weight_init import trunc_normal_
-from timm.models.registry import register_model
+from timm.models import register_model
 # from timm.models.vision_transformer import _cfg
 
 
@@ -216,14 +216,14 @@ class OverlapPatchEmbed(nn.Module):
 
         self.img_size = img_size
         self.patch_size = patch_size
-        self.H, self.W = img_size[0] // patch_size[0], img_size[1] // patch_size[1]
+        self.H, self.W = int(img_size[0]) // int(patch_size[0]), int(img_size[1]) // int(patch_size[1])
         self.num_patches = self.H * self.W
         self.proj = nn.Conv2d(
             in_chans,
             embed_dim,
             kernel_size=patch_size,
             stride=stride,
-            padding=(patch_size[0] // 2, patch_size[1] // 2),
+            padding=(int(patch_size[0]) // 2, int(patch_size[1]) // 2),
         )
         self.norm = nn.LayerNorm(embed_dim)
 
@@ -541,9 +541,9 @@ def _conv_filter(state_dict, patch_size=16):
 
 
 @register_model
-class pvt_v2_b0(PyramidVisionTransformerImpr):
+class CamoPVT_v2_b0(PyramidVisionTransformerImpr):
     def __init__(self, **kwargs):
-        super(pvt_v2_b0, self).__init__(
+        super().__init__(
             patch_size=4,
             embed_dims=[32, 64, 160, 256],
             num_heads=[1, 2, 5, 8],
@@ -558,9 +558,9 @@ class pvt_v2_b0(PyramidVisionTransformerImpr):
 
 
 @register_model
-class pvt_v2_b1(PyramidVisionTransformerImpr):
+class CamoPVT_v2_b1(PyramidVisionTransformerImpr):
     def __init__(self, **kwargs):
-        super(pvt_v2_b1, self).__init__(
+        super().__init__(
             patch_size=4,
             embed_dims=[64, 128, 320, 512],
             num_heads=[1, 2, 5, 8],
@@ -575,9 +575,9 @@ class pvt_v2_b1(PyramidVisionTransformerImpr):
 
 
 @register_model
-class pvt_v2_b2(PyramidVisionTransformerImpr):
+class CamoPVT_v2_b2(PyramidVisionTransformerImpr):
     def __init__(self, **kwargs):
-        super(pvt_v2_b2, self).__init__(
+        super().__init__(
             patch_size=4,
             embed_dims=[64, 128, 320, 512],
             num_heads=[1, 2, 5, 8],
@@ -592,9 +592,9 @@ class pvt_v2_b2(PyramidVisionTransformerImpr):
 
 
 @register_model
-class pvt_v2_b3(PyramidVisionTransformerImpr):
+class CamoPVT_v2_b3(PyramidVisionTransformerImpr):
     def __init__(self, **kwargs):
-        super(pvt_v2_b3, self).__init__(
+        super().__init__(
             patch_size=4,
             embed_dims=[64, 128, 320, 512],
             num_heads=[1, 2, 5, 8],
@@ -609,9 +609,9 @@ class pvt_v2_b3(PyramidVisionTransformerImpr):
 
 
 @register_model
-class pvt_v2_b4(PyramidVisionTransformerImpr):
+class CamoPVT_v2_b4(PyramidVisionTransformerImpr):
     def __init__(self, **kwargs):
-        super(pvt_v2_b4, self).__init__(
+        super().__init__(
             patch_size=4,
             embed_dims=[64, 128, 320, 512],
             num_heads=[1, 2, 5, 8],
@@ -626,9 +626,9 @@ class pvt_v2_b4(PyramidVisionTransformerImpr):
 
 
 @register_model
-class pvt_v2_b5(PyramidVisionTransformerImpr):
+class CamoPVT_v2_b5(PyramidVisionTransformerImpr):
     def __init__(self, **kwargs):
-        super(pvt_v2_b5, self).__init__(
+        super().__init__(
             patch_size=4,
             embed_dims=[64, 128, 320, 512],
             num_heads=[1, 2, 5, 8],
